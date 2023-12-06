@@ -49,7 +49,7 @@ const TaskApp = () => {
           }}
         ></input>
         <button
-          className="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           onClick={addTask}
         >
           Add Task
@@ -82,7 +82,7 @@ const TaskApp = () => {
                   </div>
                   <div>
                     <button
-                      className="rounded-md bg-red-500 px-3 py-2 my-3 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black "
+                      className="rounded-md bg-black px-3 py-2 my-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black "
                       onClick={() => deleteTask(task.id)}
                     >
                       Delete
