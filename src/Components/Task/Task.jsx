@@ -5,6 +5,7 @@ import { getLocalStorage } from "./LocalStorage";
 // Action types
 const ADD_TASK = "ADD_TASK";
 const DELETE_TASK = "DELETE_TASK";
+const EDIT_TASK = "EDIT_TASK";
 const TOGGLE_TASK = "TOGGLE_TASK";
 
 const TaskApp = () => {
@@ -17,6 +18,7 @@ const TaskApp = () => {
       setNewTask("");
     }
   };
+
   // setLocal storage for tasks
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -24,6 +26,10 @@ const TaskApp = () => {
 
   const deleteTask = (id) => {
     dispatch({ type: DELETE_TASK, payload: id });
+  };
+  // edit task
+  const editTask = (id) => {
+    dispatch({ type: EDIT_TASK, payload: { id } });
   };
 
   const toggleTask = (id) => {
@@ -82,11 +88,19 @@ const TaskApp = () => {
                   </div>
                   <div>
                     <button
+                      className="rounded-md text-red-500 px-3 py-2 my-3 text-sm font-semibold shadow-sm hover:bg-red-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black "
+                      onClick={() => editTask(task.id)}
+                    >
+                      Edit
+                    </button>
+                    {/* Delete button */}
+                    <button
                       className="rounded-md bg-black px-3 py-2 my-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black "
                       onClick={() => deleteTask(task.id)}
                     >
                       Delete
-                    </button>{" "}
+                    </button>
+
                     <br />
                   </div>
                 </li>

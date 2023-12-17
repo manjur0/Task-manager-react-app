@@ -6,6 +6,7 @@ export const taskReducer = (state, action) => {
         ...state,
         { id: Date.now(), text: action.payload, completed: false },
       ];
+
     case "DELETE_TASK":
       return state.filter((task) => task.id !== action.payload);
     case "TOGGLE_TASK":
@@ -14,11 +15,13 @@ export const taskReducer = (state, action) => {
           ? { ...task, completed: !task.completed }
           : task
       );
-    case "EDIT_TASK":
-          return state.map((task) =>
-         
-        task.id === action.payload.id ? { ...task, text: action.payload.newText } : task
-      );
+    // case "EDIT_TASK":
+    //   return state.map((task) =>
+    //     task.id === action.payload.id
+    //       ? { ...task, text: console.log(action.payload.text) }
+    //       : task
+    //   );
+
     default:
       return state;
   }
